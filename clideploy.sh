@@ -47,6 +47,10 @@ fi
 
 [ -d $BKDIR ] || mkdir -p $BKDIR
 
+# Make the .config dir if it doesn't exist
+
+[ -d ~/.config ] || mkdir -p ~/.config
+
 # Page through FILES list
 # If symlink, ignore
 # If exists, back up
