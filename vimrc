@@ -30,4 +30,5 @@ set tabstop=4 						" tab spacing is 4
 set softtabstop=4 					" unify tab spacing
 set shiftwidth=4 					" indent/outdent by 4
 set shiftround 						" always indent/outdent to nearest tabstop
-
+set colorcolumn=80					" wrap bar at 80 chars
+highlight ColorColumn ctermbg=0		" Make the color column black
