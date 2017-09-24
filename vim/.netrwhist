@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/paladin/Downloads/lukesmith/github/voidrice'
+let g:netrw_dirhist_2='/home/paladin/Downloads/lukesmith/github/voidrice/.config'
+let g:netrw_dirhist_3='/home/paladin/Downloads/lukesmith/github/voidrice/.config/Scripts'
+let g:netrw_dirhist_4='/home/paladin/Downloads/lukesmith/github/voidrice/.config'
+let g:netrw_dirhist_5='/home/paladin/Downloads/lukesmith/github/voidrice/.config/Scripts'
+let g:netrw_dirhist_6='/home/paladin/Downloads/lukesmith/github/voidrice/.config/i3'
+let g:netrw_dirhist_7='/home/paladin/Downloads/lukesmith/github/voidrice/.config'
+let g:netrw_dirhist_8='/home/paladin/Downloads/lukesmith/github/voidrice'
+let g:netrw_dirhist_9='/home/paladin/Downloads/lukesmith/github/voidrice/.ncmpcpp'

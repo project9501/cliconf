@@ -14,6 +14,8 @@ esac
 export QUOTING_STYLE='literal'
 export EDITOR=vim
 export RANGER_LOAD_DEFAULT_RC=false
+export GPODDER_HOME=~/.config/gPodder
+export GPODDER_DOWNLOAD_DIR=/home/pub/Music/Podcasts
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
