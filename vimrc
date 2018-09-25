@@ -14,6 +14,8 @@ Bundle 'vim-syntastic/syntastic'
 " Bundle 'ervandew/supertab'		" It's annoying
 " Bundle 'wikitopian/hardmode'		" let's not punish ourselves just yet
 Bundle 'kien/ctrlp.vim'
+Bundle 'vimwiki/vimwiki'
+Bundle 'jceb/vim-orgmode'
 
 " call vundle#end()
 

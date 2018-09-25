@@ -16,6 +16,7 @@ export EDITOR=vim
 export RANGER_LOAD_DEFAULT_RC=false
 export GPODDER_HOME=/home/${USER}/.config/gPodder
 export GPODDER_DOWNLOAD_DIR=/home/pub/Music/Podcasts
+export XAUTHORITY=$HOME/.Xauthority
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
