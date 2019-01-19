@@ -77,11 +77,15 @@ fi
 # grep -q -e "Arch" /etc/issue && archey3
 # Bootsplash
 
-if [ -n "$(command -v archey3)" ]; then
-	archey3
-elif [ -n "$(command -v screenfetch)" ]; then
-	screenfetch
+if [ -n "$(command -v neofetch)" ]; then
+	neofetch
 fi
+
+#if [ -n "$(command -v archey3)" ]; then
+#	archey3
+#elif [ -n "$(command -v screenfetch)" ]; then
+#	screenfetch
+#fi
 
 # Finally, if there's a local bashrc, source it
 
