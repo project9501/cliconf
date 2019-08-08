@@ -57,6 +57,12 @@ if [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
 fi
 
+# ruby path
+
+if [ -d "$HOME/.gem/ruby/2.6.0/bin" ]; then
+	PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+fi
+
 # for vim-live-latex-preview
 
 if [ -d "$HOME/.vim/bundle/vim-live-latex-preview/bin" ]; then
