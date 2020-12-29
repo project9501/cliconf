@@ -7,6 +7,7 @@ FILES=".archey3.cfg \
 	.bash_aliases \
 	.bash_logout \
 	.bash_profile \
+	.bash_prompt \
 	.bashrc \
 	.dircolorsrc \
 	.profile \

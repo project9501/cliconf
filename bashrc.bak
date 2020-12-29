@@ -24,8 +24,30 @@ HISTFILESIZE=2000
 
 shopt -s histappend
 shopt -s checkwinsize
+force_color_prompt=yes
 
-[ -f ~/.bash_prompt ] && . ~/.bash_prompt || PS1='[\A \u@\h: \w]# '
+case "$TERM" in
+		xterm-color) color_prompt=yes;;
+esac
+
+if [ -n "$force_color_prompt" ]; then
+	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+		color_prompt=yes
+	else
+		color_prompt=
+	fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+	if [[ $EUID -eq 0 ]]; then
+		PS1='[\A \[\e[1;31m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]# '
+	else
+		PS1='[\A \[\e[1;32m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]$ '
+	fi
+	eval $(dircolors -b ~/.dircolorsrc)
+else
+	PS1='[\A \u@\h: \w]# '
+fi
 
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
