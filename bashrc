@@ -17,6 +17,7 @@ export RANGER_LOAD_DEFAULT_RC=false
 export GPODDER_HOME=/home/${USER}/.config/gPodder
 export GPODDER_DOWNLOAD_DIR=/home/pub/Music/Podcasts
 export XAUTHORITY=$HOME/.Xauthority
+export NOTEDIR=/home/${USER}/Notes
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
@@ -66,10 +67,25 @@ if [ -n "$(command -v neofetch)" ]; then
 fi
 
 #if [ -n "$(command -v archey3)" ]; then
-#	archey3
-#elif [ -n "$(command -v screenfetch)" ]; then
+#	archey3 #elif [ -n "$(command -v screenfetch)" ]; then
 #	screenfetch
 #fi
+
+### Note-taking functions for bash
+
+#n() { $EDITOR $NOTEDIR/"$*" }
+
+#nls() { lsd -t --blocks name,date $NOTEDIR | grep "$*" }
+
+#nrm() { rm $NOTEDIR/"$*" }
+
+#nf() { grep -C 5 "$*" $NOTEDIR/* }
+
+#ncat() { cat $NOTEDIR/"$*" }
+
+# Source bash functions
+
+[ -f ~/.bash_functions ] && source ~/.bash_functions
 
 # Finally, if there's a local bashrc, source it
 
