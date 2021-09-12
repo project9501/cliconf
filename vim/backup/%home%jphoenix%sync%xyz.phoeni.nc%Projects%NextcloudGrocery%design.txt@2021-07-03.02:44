@@ -1,0 +1,12 @@
+- Share list with other Nextcloud users
+- Set a list as default in the app
+	- if there's a default, the app opens to it
+	- if no default, open to list of lists
+	- Can easily get to list of lists from open list
+- text input box on list screen
+	- item name, quantity, check box
+	- only item name is required
+	- check box unfilled by default
+	- list "remembers" previous items and suggests them
+- tap on item to edit it or add a "location" or a "note"
+- sweep icon to clear a list of purchased items

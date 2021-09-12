@@ -1,0 +1,297 @@
+# vim: filetype=i3
+#
+# Initial i3 config 2017-09-08
+# Drawn heavily from Luke Smith's config
+
+# i3-gaps
+hide_edge_borders both
+for_window [class="^.*"] border pixel 0
+gaps inner 15
+gaps outer 0				# Adds to inner gaps
+#smart_gaps on				# gaps even with one frame
+smart_borders no_gaps		# draws borders if gaps=0
+font pango:monospace 9
+
+# Mod key Win
+set $mod Mod4
+
+# Default programs
+set $term urxvt
+#set $browser firefox-esr	# AUR install
+#set $launcher dmenu_run		# Dmenu for now
+set $browser firefox
+set $safebrowser "--no-startup-id firefox-esr --no-remote -P"
+set $launcher rofi -show run
+set $lock ~/.config/i3/scripts/lock.sh
+set $flash --no-startup-id bash ~/.config/i3/scripts/flash_win.sh
+set $pwmgr keepassxc
+
+## External Startup Scripts
+# screen resolution
+#exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080
+
+# Composite manager
+exec --no-startup-id compton
+# Wallpaper
+exec_always feh --randomize --bg-scale ~/.config/wallpaper/*
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+# Wifi applet
+exec --no-startup-id nm-applet
+# Unclutter -- hide mouse after short time
+exec --no-startup-id unclutter
+# Dropbox
+exec --no-startup-id dropbox
+# Conky
+exec --no-startup-id ~/.config/i3/scripts/conky_start.sh
+# Udiskie
+#exec --no-startup-id udiskie --tray --use-udisks2
+exec --no-startup-id udiskie --tray
+# Nextcloud
+exec --no-startup-id nextcloud
+# Polkit
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# Element-desktop
+exec --no-startup-id /usr/bin/element-desktop --hidden
+# Gajim
+exec --no-startup-id /usr/bin/gajim
+
+floating_modifier $mod
+
+# Define dropdown/scratchpad windows
+
+for_window [instance="tpad"] floating enable
+for_window [instance="tpad"] resize set 960 600
+for_window [instance="tpad"] move position center
+for_window [instance="tpad"] move scratchpad
+exec --no-startup-id $term -name tpad -e tmux
+
+for_window [instance="math"] floating enable
+for_window [instance="math"] resize set 800 300
+for_window [instance="math"] move position center
+for_window [instance="math"] move scratchpad
+exec --no-startup-id $term -fn "xft:mono:pixelsize=24" -name math -e R -q
+
+for_window [instance="jop_dd"] floating enable
+for_window [instance="jop_dd"] resize set 1200 720
+for_window [instance="jop_dd"] move position center
+for_window [instance="jop_dd"] move scratchpad
+exec --no-startup-id $term -name "jop_dd" -e joplin
+
+# Glances dropdown -- system monitor
+
+for_window [instance="glances"] floating enable
+for_window [instance="glances"] resize set 1200 720
+for_window [instance="glances"] move position center
+for_window [instance="glances"] move scratchpad
+exec --no-startup-id $term -name glances -e glances
+
+# Other global window rules
+
+for_window [title="^keepassx2"] floating enable
+for_window [title="^keepassx2"] move position center
+
+# Basic bindings
+bindsym $mod+Return			exec $term
+bindsym $mod+Shift+Return	exec $term -e tmux
+bindsym $mod+slash			split vertical ;; exec $term
+bindsym $mod+apostrophe		split horizontal ;; exec $term
+
+# Drop-downs
+bindsym $mod+u				[instance="tpad"] scratchpad show; move position center
+bindsym $mod+c				[instance="math"] scratchpad show; move position center
+bindsym $mod+g				[instance="glances"] scratchpad show; move position center
+bindsym $mod+n				[instance="jop_dd"] scratchpad show; move position center
+
+bindsym $mod+Shift+q		kill
+bindsym $mod+q				kill
+
+#bindsym $mod+d				exec $launcher
+bindsym Control+space		exec $launcher
+
+# Help file
+bindsym $mod+F1				exec firefox-esr -P "default" --no-remote ~/.sysdocs/helpwiki.html
+#bindsym $mod+F1			exec --no-startup-id i3-msg 'floating enable; resize set 1080 600; move position center; exec firefox-esr -P "default" --no-remote ~/.config/doc/helpwiki.html'
+
+# Flash the window
+bindsym $mod+BackSpace		exec $flash
+bindsym $mod+Shift+slash	exec $flash
+
+# Change these to be vimlike
+bindsym $mod+h				focus left
+bindsym $mod+Shift+h		move left 30
+
+bindsym $mod+j				focus down
+bindsym $mod+Shift+j		move down 30
+
+bindsym $mod+k				focus up
+bindsym $mod+Shift+k		move up 30
+
+bindsym $mod+l				focus right
+bindsym $mod+Shift+l		move right 30
+
+# Resizing mappings
+bindsym $mod+z				gaps outer current plus 5
+bindsym $mod+Shift+z		gaps outer current minus 5
+
+bindsym $mod+Shift+y		resize shrink width 10px or 10ppt
+bindsym $mod+Shift+u		resize shrink height 10px or 10ppt
+
+bindsym $mod+Shift+i		resize grow height 10px or 10ppt
+bindsym $mod+Shift+o		resize grow width 10px or 10ppt
+
+bindsym $mod+t				split toggle
+bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 0
+
+bindsym Mod1+Tab			workspace next
+bindsym Mod1+Shift+Tab		workspace prev
+
+# Volume controls
+# PULSEAUDIO/PAMIXER aliases
+set $inc --no-startup-id pamixer --allow-boost -i 5
+set $biginc --no-startup-id pamixer --allow-boost -i 15
+set $dec --no-startup-id pamixer --allow-boost -d 5
+set $bigdec --no-startup-id pamixer --allow-boost -d 15
+set $mute --no-startup-id pamixer --allow-boost -t
+
+# MPC aliases
+set $pause --no-startup-id mpc toggle
+set $next --no-startup-id mpc next
+set $prev --no-startup-id mpc prev
+
+bindsym $mod+F7				exec $mute
+bindsym $mod+F8				exec $dec
+bindsym $mod+Shift+F8		exec $bigdec
+bindsym $mod+F9				exec $inc
+bindsym $mod+Shift+F9		exec $biginc
+bindsym $mod+F10			exec $prev
+bindsym $mod+F11			exec $pause
+bindsym $mod+F12			exec $next
+
+# Screenshot key?
+bindsym $mod+Print			exec ~/.config/i3/scripts/screencap.sh
+
+# Lock screen
+# Superseded by "exit" mode
+# bindsym $mod+x				exec ~/.config/i3/scripts/lock.sh
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+f				fullscreen toggle
+#bindsym $mod+F11			fullscreen toggle
+
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space	floating toggle
+bindsym $mod+space			focus mode_toggle
+
+bindsym $mod+a focus parent
+
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+### SPECIAL WINDOW RULES
+# GIMP
+for_window [title="GIMP Startup"] move workspace 8
+for_window [class="Gimp"] move workspace 8
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+
+### DIFFERENT MODES
+
+mode "session" {
+	# These bindings trigger upon entering exit mode
+	# First, backing out
+	bindsym Return			mode "default"
+	bindsym Escape			mode "default"
+
+	# Lock screen
+	bindsym l				exec $lock; mode "default"
+
+	# Suspend
+	bindsym s				exec $lock && exec systemctl suspend; mode "default"
+
+	# Halt
+	bindsym h				exec systemctl halt; mode "default"
+
+	# Logout
+	bindsym q				exec i3-msg exit; mode "default"
+
+	# Reboot
+	bindsym b				exec systemctl reboot; mode "default"
+
+	# Reload
+	bindsym c				reload; mode "default"
+
+	# Restart
+	bindsym r				restart; mode "default"
+
+	# Poweroff
+	bindsym p				exec sudo systemctl poweroff; mode "default"
+}
+
+bindsym $mod+x				mode "session"
+
+mode "launch" {
+	# These bindings provide one-button launches of
+	# frequently-used programs.
+	# First, backing out
+	bindsym Return			mode "default"
+	bindsym Escape			mode "default"
+
+	# Browser
+	bindsym w				exec $browser; mode "default"
+	bindsym Shift+w			exec $safebrowser; mode "default"
+	
+	# Journal
+	bindsym j				exec --no-startup-id firefox-esr --no-remote -P default ~/.sysdocs/journal.html; mode "default"
+	
+	# GIMP
+	bindsym g				exec --no-startup-id gimp; mode "default"
+
+	# Thunderbird
+	bindsym e				exec --no-startup-id thunderbird; mode "default"
+
+	# Nixnote
+	bindsym n				exec --no-startup-id ~/bin/nixnote.sh; mode "default"
+
+	# Password manager
+	bindsym p				exec --no-startup-id $pwmgr; mode "default"
+}
+
+bindsym F6					mode "launch"
+
+#bar {
+#        status_command i3status
+#}
+

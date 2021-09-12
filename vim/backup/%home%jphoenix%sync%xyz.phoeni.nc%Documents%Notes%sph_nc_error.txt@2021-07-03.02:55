@@ -1,0 +1,4 @@
+104.237.193.196 - - [03/Jul/2021:07:53:51 +0000] "GET /status.php HTTP/1.1" 302 452 "-" "Mozilla/5.0 (Linux) mirall/3.2.3git (Nextcloud, arch-5.10.47-1-lts ClientArchitecture: x86_64 OsArchitecture: x86_64)"
+104.237.193.196 - - [03/Jul/2021:07:54:03 +0000] "GET / HTTP/1.1" 302 452 "-" "Mozilla/5.0 (Linux) mirall/3.2.3git (Nextcloud, arch-5.10.47-1-lts ClientArchitecture: x86_64 OsArchitecture: x86_64)"
+104.237.193.196 - - [03/Jul/2021:07:54:04 +0000] "GET /status.php HTTP/1.1" 302 452 "-" "Mozilla/5.0 (Linux) mirall/3.2.3git (Nextcloud, arch-5.10.47-1-lts ClientArchitecture: x86_64 OsArchitecture: x86_64)"
+

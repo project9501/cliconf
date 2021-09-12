@@ -1,0 +1,5 @@
+Hierarchical, keyboard-editable outline on the left, text editor/word processing on the right
+
+- "you can do this in emacs org mode by using indirect buffer, vertical split screen, and visibility cycling.  Everything is handled via hotkeys"
+
+
