@@ -1,0 +1,51 @@
+Emacs can apparently use graphical display as a powerpoint kind of thing, which is neat
+
+emacs-no-x -- cli-only?  For Debian distros?
+
+(What the fuck is "MSYS2" that you can use pacman on Windows?)
+
+(Chocolatey?  Same question)
+
+Menu and tool bar -- emacs in editor has a menu bar, and a lot of the entries have the keybinding associated with the item listed in the menu.  Good for helpful reminders.
+
+Some of the menus are context-sensitive, changing depending on what "buffers" you're looking at
+
+The menu and tool bars can both be disabled pretty easily
+
+"We're running terminal emacs inside graphical emacs" what
+
+A "window" in emacs is always a buffer, a pane.  They can be split in arbitrary ways to create interesting layouts.  Emacs calls them "frames."
+
+"magit" package provides Git interface in Emacs buffer
+
+"scratch" buffer is blank sheet of paper for taking notes or Lisp expressions
+"messages" buffer is log messages/text written to echo area at bottom of screen
+"warnings" buffer is self-explanatory
+
+So you definitely need to keep square which buffer you're looking at/working on
+
+EMACS Manual: "Using Multiple Buffers"
+
+Bottom toolbar shows which buffer you're in, where you are in the buffer (percentage and line number), what type of file you're in.  In graphical all of that is clickable.  The big difference from other IDEs is you get one "mode line" per buffer rather than a global line
+
+Of course the mode line is fully customizable.
+
+"doom mode line" package (?)
+
+Right below the mode line is the echo area.  Oop, prayer time.
+
+The echo area is also a mini-buffer for prompts and suchlike
+
+"It's a place at the bottom of the screen where things tend to happen"
+
+### Commands
+
+To run a command, hit M-x, which will bring up a prompt where you type the command to be run
+
+Check:
+
+- dired
+- calendar
+- 
+
+M-x, then tab, shows all available commands

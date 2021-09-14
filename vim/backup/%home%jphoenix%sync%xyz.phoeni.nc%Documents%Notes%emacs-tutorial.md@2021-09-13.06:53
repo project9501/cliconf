@@ -1,0 +1,19 @@
+Emacs can apparently use graphical display as a powerpoint kind of thing, which is neat
+
+emacs-no-x -- cli-only?  For Debian distros?
+
+(What the fuck is "MSYS2" that you can use pacman on Windows?)
+
+(Chocolatey?  Same question)
+
+Menu and tool bar -- emacs in editor has a menu bar, and a lot of the entries have the keybinding associated with the item listed in the menu.  Good for helpful reminders.
+
+Some of the menus are context-sensitive, changing depending on what "buffers" you're looking at
+
+The menu and tool bars can both be disabled pretty easily
+
+"We're running terminal emacs inside graphical emacs" what
+
+A "window" in emacs is always a buffer, a pane.  They can be split in arbitrary ways to create interesting layouts.  Emacs calls them "frames."
+
+
