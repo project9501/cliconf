@@ -1,9 +1,0 @@
-#!/bin/bash
-# Clears $1 days of archives
-# Default is 14
-
-RANGE=$1
-
-[ -n $1 ] && RANGE=14
-
-find . -type f -name *.tar -mtime +${RANGE} 

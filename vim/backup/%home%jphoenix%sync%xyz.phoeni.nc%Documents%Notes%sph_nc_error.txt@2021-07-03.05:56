@@ -1,8 +1,0 @@
-104.237.193.196 - - [03/Jul/2021:07:53:51 +0000] "GET /status.php HTTP/1.1" 302 452 "-" "Mozilla/5.0 (Linux) mirall/3.2.3git (Nextcloud, arch-5.10.47-1-lts ClientArchitecture: x86_64 OsArchitecture: x86_64)"
-104.237.193.196 - - [03/Jul/2021:07:54:03 +0000] "GET / HTTP/1.1" 302 452 "-" "Mozilla/5.0 (Linux) mirall/3.2.3git (Nextcloud, arch-5.10.47-1-lts ClientArchitecture: x86_64 OsArchitecture: x86_64)"
-104.237.193.196 - - [03/Jul/2021:07:54:04 +0000] "GET /status.php HTTP/1.1" 302 452 "-" "Mozilla/5.0 (Linux) mirall/3.2.3git (Nextcloud, arch-5.10.47-1-lts ClientArchitecture: x86_64 OsArchitecture: x86_64)"
-
-2021/07/03 07:28:28 [error] 1279#1279: *9924 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught OC\HintException: [0]: Memcache \OC\Memcache\APCu not available for local cache (Is the matching PHP module installed and enabled?)
-
-  thrown in /var/www/nextcloud/lib/private/Memcache/Factory.php on line 98" while reading response header from upstream, client: 104.237.193.196, server: cloud.sagephoenix.org, request: "GET /ocs/v2.php/apps/notifications/api/v2/notifications HTTP/2.0", upstream: "fastcgi://unix:/var/run/php/php7.3-fpm-nextcloud.sock:", host: "cloud.sagephoenix.org"
-

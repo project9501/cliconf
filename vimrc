@@ -37,12 +37,16 @@ set copyindent						" for smart tabs
 set preserveindent					" for smart tabs
 set colorcolumn=80					" wrap bar at 80 chars
 highlight ColorColumn ctermbg=0		" Make the color column black
+set wrap							" soft-wraps text
+set linebreak						" intelligent wrapping
 
 "Turn on backup option
 set backup
 "
 ""Where to store backups
-set backupdir=~/.vim/backup//
+"set backupdir=~/local/Backup/.vim/
+silent !mkdir -p ./.vim-backup
+set backupdir=./.vim-backup
 
 "Make backup before overwriting the current buffer
 set writebackup
@@ -50,5 +54,5 @@ set writebackup
 ""Overwrite the original backup file
 set backupcopy=yes
 
-"Meaningful backup name, ex: filename@2015-04-05.14:59
+""Meaningful backup name
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
