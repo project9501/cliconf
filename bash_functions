@@ -13,13 +13,26 @@ cl() {
 
 ## Note-taking
 
+#n() {
+#	[ -d $NOTEDIR ] || mkdir -p $NOTEDIR
+#	$EDITOR $NOTEDIR/"$*"
+#}
+
 n() {
-	[ -d $NOTEDIR ] || mkdir -p $NOTEDIR
-	$EDITOR $NOTEDIR/"$*"
+  which joplin || echo "Joplin is not installed."
+  [[ -z $@ ]] && notename=$(date +'%F %T') || notename="$@"
+  notename=$(echo $notename | tr " " "-")
+  joplin use Notes
+  joplin edit $notename
 }
 
+#nls() {
+#	lsd -tr --blocks name,date $NOTEDIR/ | grep "$*"
+#}
+
 nls() {
-	lsd -tr --blocks name,date $NOTEDIR/ | grep "$*"
+  joplin use Notes
+  joplin ls --long --reverse
 }
 
 nrm() {

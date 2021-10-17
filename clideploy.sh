@@ -91,13 +91,13 @@ if [ ! -L ~/.config/ranger ]; then
 	ln -s $SOURCEDIR/ranger ~/.config/ranger
 fi
 
-if [ ! -L ~/.emacs.d ]; then
-	if [ -d ~/.emacs.d ]; then
-		echo "Moving ~/.emacs.d/ to $BKDIR..."
-		mv -n ~/.emacs.d/ $BKDIR/
-	fi
-	ln -s $SOURCEDIR/emacs.d ~/.emacs.d
-fi
+#if [ ! -L ~/.emacs.d ]; then
+#	if [ -d ~/.emacs.d ]; then
+#		echo "Moving ~/.emacs.d/ to $BKDIR..."
+#		mv -n ~/.emacs.d/ $BKDIR/
+#	fi
+#	ln -s $SOURCEDIR/emacs.d ~/.emacs.d
+#fi
 
 # Make bin dir if it doesn't exist
 

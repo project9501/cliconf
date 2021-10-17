@@ -18,6 +18,7 @@ export GPODDER_HOME=/home/${USER}/.config/gPodder
 export GPODDER_DOWNLOAD_DIR=/home/pub/Music/Podcasts
 export XAUTHORITY=$HOME/.Xauthority
 export NOTEDIR=/home/${USER}/Notes
+export DOOMDIR=/home/${USER}/.config/emacs/doom-emacs
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
@@ -54,6 +55,12 @@ if ! shopt -oq posix; then
 	elif [ -f /etc/bash_completion ]; then
 		. /etc/bash_completion
 	fi
+fi
+
+# doom emacs
+
+if [ -d $DOOMDIR ]; then
+	PATH="$DOOMDIR/bin:$PATH"
 fi
 
 # If a login shell, run some extra commands

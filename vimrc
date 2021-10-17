@@ -39,13 +39,15 @@ set colorcolumn=80					" wrap bar at 80 chars
 highlight ColorColumn ctermbg=0		" Make the color column black
 set wrap							" soft-wraps text
 set linebreak						" intelligent wrapping
+set autochdir						" Testing for backupdir problem
 
 "Turn on backup option
 set backup
 "
 ""Where to store backups
 "set backupdir=~/local/Backup/.vim/
-silent !mkdir -p ./.vim-backup
+"silent! mkdir -p ./.vim-backup
+au BufWrite * call mkdir("./.vim-backup", "p", 0700)
 set backupdir=./.vim-backup
 
 "Make backup before overwriting the current buffer
