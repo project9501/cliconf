@@ -99,6 +99,16 @@ fi
 #	ln -s $SOURCEDIR/emacs.d ~/.emacs.d
 #fi
 
+if [ ! -d ~/.config/joplin ]; then
+	mkdir -p ~/.config/joplin
+fi
+
+if [ ! -L ~/.config/joplin/keymap.json]; then
+	echo "Moving ~/.config/joplin/keymap.json to $BKDIR..."
+	mv -n ~/.config/joplin/keymap.json $BKDIR/
+	echo "Creating symlink to keymap.json in .config/joplin..."
+	ln -s $SOURCEDIR/joplin/keymap.json ~/.config/joplin/keymap.json
+fi
 # Make bin dir if it doesn't exist
 
 [ -d ~/bin ] || mkdir -p ~/bin
