@@ -103,7 +103,7 @@ if [ ! -d ~/.config/joplin ]; then
 	mkdir -p ~/.config/joplin
 fi
 
-if [ ! -L ~/.config/joplin/keymap.json]; then
+if [ ! -L ~/.config/joplin/keymap.json ]; then
 	echo "Moving ~/.config/joplin/keymap.json to $BKDIR..."
 	mv -n ~/.config/joplin/keymap.json $BKDIR/
 	echo "Creating symlink to keymap.json in .config/joplin..."
