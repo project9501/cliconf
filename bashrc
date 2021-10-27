@@ -19,6 +19,7 @@ export GPODDER_DOWNLOAD_DIR=/home/pub/Music/Podcasts
 export XAUTHORITY=$HOME/.Xauthority
 export NOTEDIR=/home/${USER}/Notes
 export DOOMDIR=/home/${USER}/.config/emacs/doom-emacs
+export MOTD=/home/${USER}/.motd
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
@@ -69,8 +70,23 @@ fi
 # grep -q -e "Arch" /etc/issue && archey3
 # Bootsplash
 
-if [ -n "$(command -v neofetch)" ]; then
-	neofetch
+#if [ -n "$(command -v neofetch)" ]; then
+#	neofetch
+#fi
+
+## The following works but prints the command path before executing
+## So back to the previous test
+#command -v neofetch && neofetch
+# which neofetch && neofetch
+
+[[ -n "$(command -v neofetch)" ]] && neofetch
+
+#[[ -f $MOTD ]] && cat $MOTD
+
+if [[ -f $MOTD ]]; then
+	echo "MOTD for $(date +'%F')"
+#	while read line; do printf "    * %s\n" "${line}"; done < $MOTD
+    while read line; do echo "  * $line" | fmt -t -w $((COLUMNS-5)) | sed '/^  */ !s/^/    /'; done < $MOTD
 fi
 
 #if [ -n "$(command -v archey3)" ]; then

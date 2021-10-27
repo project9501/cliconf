@@ -46,3 +46,7 @@ nf() {
 ncat() {
 	cat $NOTEDIR/"$*"
 }
+
+msg() {
+	echo "$*" >> $MOTD
+}
