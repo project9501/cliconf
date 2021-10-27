@@ -84,7 +84,7 @@ fi
 #[[ -f $MOTD ]] && cat $MOTD
 
 if [[ -f $MOTD ]]; then
-	echo "MOTD for $(date +'%F')"
+	echo "MOTD for $(date +'%F') : Add notes with 'msg \$NOTE'"
 #	while read line; do printf "    * %s\n" "${line}"; done < $MOTD
     while read line; do echo "  * $line" | fmt -t -w $((COLUMNS-5)) | sed '/^  */ !s/^/    /'; done < $MOTD
 fi
