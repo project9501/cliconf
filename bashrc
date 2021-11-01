@@ -18,7 +18,8 @@ export GPODDER_HOME=/home/${USER}/.config/gPodder
 export GPODDER_DOWNLOAD_DIR=/home/pub/Music/Podcasts
 export XAUTHORITY=$HOME/.Xauthority
 export NOTEDIR=/home/${USER}/Notes
-export DOOMDIR=/home/${USER}/.config/emacs/doom-emacs
+export DOOMPATH=/home/${USER}/.config/emacs/doom-emacs
+export DOOMDIR=/home/${USER}/.config/doom
 export MOTD=/home/${USER}/.motd
 
 HISTCONTROL=ignoreboth
@@ -60,8 +61,8 @@ fi
 
 # doom emacs
 
-if [ -d $DOOMDIR ]; then
-	PATH="$DOOMDIR/bin:$PATH"
+if [ -d $DOOMPATH ]; then
+	PATH="$DOOMPATH/bin:$PATH"
 fi
 
 # If a login shell, run some extra commands
