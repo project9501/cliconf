@@ -50,3 +50,9 @@ ncat() {
 msg() {
 	echo "$*" >> $MOTD
 }
+
+## ssh-agent
+
+giton() {
+	eval "$(ssh-agent -s)" && ssh-add ~/.ssh/github_rsa
+}
