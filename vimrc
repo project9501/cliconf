@@ -16,6 +16,7 @@ Bundle 'vim-syntastic/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vimwiki/vimwiki'
 Bundle 'jceb/vim-orgmode'
+Bundle 'preservim/nerdtree'
 
 " call vundle#end()
 
