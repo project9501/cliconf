@@ -58,4 +58,4 @@ set writebackup
 set backupcopy=yes
 
 ""Meaningful backup name
-au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+au BufWritePre * let &bex = '@' . strftime("%F.%H%M")
