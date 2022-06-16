@@ -1,5 +1,5 @@
 if filereadable(expand('~/.vimrc.local'))
 	so ~/.vimrc.local
 else
-	so ~/.dotfiles/cliconf/vimrc.global
+	so ~/.vim/vimrc.global
 endif
