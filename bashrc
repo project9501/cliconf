@@ -21,6 +21,7 @@ export NOTEDIR=/home/${USER}/Notes
 export DOOMPATH=/home/${USER}/.config/emacs/doom-emacs
 export DOOMDIR=/home/${USER}/.config/doom
 export MOTD=/home/${USER}/.motd
+export VERSION=/home/${USER}/.dotfiles/cliconf/version
 
 HISTCONTROL=ignoreboth
 #HISTSIZE=1000
@@ -35,7 +36,7 @@ export HISTSIZE=-1
 export HISTTIMEFORMAT="[%F %T] "
 # Change the file location because certain bash sessions truncate .bash_history file upon close.
 # http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
-export HISTFILE=~/.history
+export HISTFILE=~/.bash_extended_history
 # Force prompt to write history after every command.
 # http://superuser.com/questions/20900/bash-history-loss
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
@@ -98,6 +99,8 @@ fi
 [[ -n "$(command -v neofetch)" ]] && neofetch
 
 #[[ -f $MOTD ]] && cat $MOTD
+
+[[ -f $VERSION ]] && cat $VERSION
 
 if [[ -f $MOTD ]]; then
 	echo "MOTD for $(date +'%F') : Add notes with 'msg \$NOTE'"

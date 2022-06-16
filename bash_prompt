@@ -1,27 +1,33 @@
-force_color_prompt=yes
+[ -z "${TMUX}" ] || TMUXFLAG=(tmux) 
+
+
+
+
+
+ROOTP='[$TMUXFLAG\A \[\e[1;31m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]# '
+ADMINP='[$TMUXFLAG\A \[\e[1;32m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]$ '
+USERP='[$TMUXFLAG\A \[\e[1;36m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]@ '
+NOCOLORP='[$(TMUXFLAG)\A \u@\h: \w]$ '
 
 case "$TERM" in
-		xterm-color) color_prompt=yes;;
+	xterm-color) color_prompt=true;;
 esac
 
-if [ -n "$force_color_prompt" ]; then
-	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-		color_prompt=yes
-	else
-		color_prompt=
-	fi
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	color_prompt=true;
+else
+	color_prompt=false;
 fi
 
-if [ "$color_prompt" = yes ]; then
+if [ $color_prompt ]; then
 	if [[ $EUID -eq 0 ]]; then
-		PS1='[\A \[\e[1;31m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]# '
+		PS1=$ROOTP
 	elif id -nGz $USER | grep -qzxF "wheel"; then
-		PS1='[\A \[\e[1;32m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]$ '
+		PS1=$ADMINP
 	else
-		PS1='[\A \[\e[1;36m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]@ '
+		PS1=$USERP
 	fi
 	eval $(dircolors -b ~/.dircolorsrc)
 else
-	PS1='[\A \u@\h: \w]# '
+	PS1=$NOCOLORP
 fi
-
