@@ -1,10 +1,10 @@
 [ -z "${TMUX}" ] || TMUXFLAG="(tmux) "
 
 
-ROOTP='[\$TMUXFLAG\A \[\e[1;31m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]# '
+ROOTP="[\$TMUXFLAG\A \[\e[1;31m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]# "
 ADMINP="[\${TMUXFLAG}\A \[\e[1;32m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]$ "
-USERP='[\$TMUXFLAG\A \[\e[1;36m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]@ '
-NOCOLORP='[\$(TMUXFLAG)\A \u@\h: \w]$ '
+USERP="[\$TMUXFLAG\A \[\e[1;36m\]\u\[\e[m\]@\h \[\e[1;34m\]\W\[\e[m\]]@ "
+NOCOLORP="[\$(TMUXFLAG)\A \u@\h: \w]$ "
 
 case "$TERM" in
 	xterm-color) color_prompt=true;;
